@@ -1,0 +1,40 @@
+---
+schema_version: 1
+title: 'Asymmetric Encryption to Sign and Verify Data [Eng]'
+description: In this lab, you use asymmetric encryption to sign a document and then use the signature to verify if the document has been modified. 
+default_locale: en
+duration: 40
+max_duration: 40
+level: introductory
+tags:
+- ROI
+- KMS
+- Signature
+- Asymmetric encryption
+credits: 0
+tagline:
+resources: []
+environment:
+  resources:
+  - type: gcp_project
+    id: project_0
+    ssh_key_user: user_0
+  - type: gcp_user
+    id: user_0
+    permissions:
+    - project: project_0
+      roles:
+      - roles/editor  
+      - roles/cloudkms.admin
+      - roles/servicemanagement.quotaAdmin
+      - roles/cloudkms.cryptoKeyEncrypterDecrypter
+      - roles/cloudkms.cryptoKeySignerVerifier
+  student_visible_outputs:
+  - label: Open Google Console
+    reference: project_0.console_url
+  - label: Username
+    reference: user_0.username
+  - label: Password
+    reference: user_0.password
+  - label: GCP Project ID
+    reference: project_0.project_id
