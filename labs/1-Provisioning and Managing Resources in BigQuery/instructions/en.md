@@ -25,14 +25,11 @@ In this lab, you learn how to:
 
 1. In the Google Cloud Console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)) select __BigQuery__. 
 
-
 2. In the BigQuery UI Explorer pane, click on the Action menu next to your Project ID, and select __Create Dataset__.
 
 ![Create Dataset Menu](img/create-dataset.png)
 
-
 3. In the resulting dialog, set the Dataset ID to `wikipedia_data`, and set the Data location to __US (multiple regions in United States)__. Then, click the __Create Dataset__ button. 
-
 
 ## Task 2. Create native and external tables
 
@@ -42,7 +39,7 @@ In this lab, you learn how to:
 
 2. In the Create Table dialog, set the Source to __Google Cloud Storage__. Then, set the file pattern to `bigquery-demo-bucket/wikipedia-data/csv/Wiki1B-*.csv`
 
-__Note:__ The astericks (*) in the file pattern. There is about a Gigibyte of data being imported from a number of CSV files. 
+__Note:__ The astericks (*) in the file pattern. There is about a Gigibyte of data being imported from a number of CSV files. This would be a very common way of importing large datasets into BigQuery. 
 
 3. Confirm the file format was changed to CSV. In the Destination section, confirm the Dataset is set to `wikipedia_data`, and set the Table name to `wiki_table_csv`
 
@@ -50,9 +47,9 @@ __Note:__ The astericks (*) in the file pattern. There is about a Gigibyte of da
 
 5. Expand the __Advanced options__ section, and set the __Header rows to skip__ property to 1. Finally, click the __Create Table__ button. 
 
-6. In the Exporer pane, select the Action menu next to the `wiki_table_csv` table and select __Query__. 
+6. When the load operation completes, in the Exporer pane, select the Action menu next to the `wiki_table_csv` table and select __Query__. 
 
-7. In the Query editor, paste the following query and run it. 
+7. In the Query editor, paste the following query and run it. _This query counts the number of views for Wikipedia articles with "GOOGLE" in the title_. 
 
 ```
 SELECT
@@ -116,18 +113,15 @@ LIMIT
 
 ![Share Dataset Menu](img/share-dataset.png)
 
-
 2. You will make our colleague Mike a BigQuery Data Editor. Click the __Add Principal__ button. Enter the email `michaelabel@google.com`, and assign to him the role __BigQuery Data Editor__. Then, click the __Save__ button. 
 
 ![Dataset Permissions](img/dataset-permissions.png)
-
 
 __Note:__ You have given Mike permissions to edit data in the dataset. You will now give everyone permissions to query the Wikipedia data. 
 
 3. As you just did, click on the Action menu next to `wikipedia_data`, and select __Share__.  Click on the __Add Principal__ button. This time set the new principal to the key word `allAuthenticatedUsers`, and assign to that principal the __BigQuery Data Viewer__ role. When prompted, click __Allow Public Access__
 
 ![Make Public Dataset](img/make-public-dataset.png)
-
 
 ## Task 4. Monitor resource utilization 
 
@@ -137,13 +131,13 @@ __Note:__ You have given Mike permissions to edit data in the dataset. You will 
 
 ![Monitoring Dashboards](img/monitoring-icon.png)
 
-
 3. Click on the __BigQuery__ dashboard from the All Dashboards table. 
 
 4. There is not much data to see because you just started using this project, but there should be some. Note under Project metrics, you have charts for Queries in Flight, Query Times, and Slot Utilization. 
 
-
 ## Task 5. Create Resources with the CLI
+
+Everything you can do in the Console, you can also do programatically using the Command Line Interface (CLI). This allows you to write scripts to create and destroy resources, and can make migration and testing easier and more automated. 
 
 1. On the Google Cloud Console title bar, click __Activate Cloud Shell__ (![cloud shell icon](img/cloud_shell_icon.png)). If prompted, click __Continue__.
 
@@ -153,7 +147,7 @@ __Note:__ You have given Mike permissions to edit data in the dataset. You will 
 bq ls
 ```
 
-3. Enter the following command; you should see the tables in your dataset. 
+3. Enter the following command; you should see the tables in the dataset you created earlier. 
 
 ```
 bq ls wikipedia_data
@@ -165,7 +159,7 @@ bq ls wikipedia_data
 bq mk --location=US bikes_database
 ```
 
-5. Now add a table to the dataset you just created. The table is named `regions`, the data is in a CSV file in Google Cloud Storage. You will use the --autodetect parameter, to automatically detect the table schema. 
+5. Now, add a table to the dataset you just created. The table is named `regions`, the data is in a CSV file in Google Cloud Storage. You will use the --autodetect parameter, to automatically detect the table schema. 
 
 ```
 bq load --autodetect bikes_database.regions gs://bigquery-demo-bucket/bikes-database/regions.csv
@@ -191,7 +185,6 @@ bq ls bikes_database
 ```
 bq head bikes_database.stations
 ```
-
 
 8. Now the trips table. 
 
@@ -230,4 +223,3 @@ ORDER BY
 ![[/fragments/endqwiklab]]
 
 ![[/fragments/copyright]]
-

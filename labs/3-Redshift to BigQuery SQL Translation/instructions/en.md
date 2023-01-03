@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lab, you will program SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You will create Tables and Views using DDL statements in SQL, and you will create custom behaviors using user-defined functions and stored procedures. 
+In this lab, you will program SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You will create Tables and Views using SQL DDL statements, and you will create custom behaviors using user-defined functions (UDFs) and stored procedures. 
 
 ## Objectives
 
@@ -46,7 +46,6 @@ CREATE TABLE animals_dataset.Owners(
   Name STRING
   );
 
-
 CREATE TABLE animals_dataset.Pets(
   PetID INT64 NOT NULL,
   OwnerID INT64 NOT NULL,
@@ -56,8 +55,7 @@ CREATE TABLE animals_dataset.Pets(
   );
 ```
 
-5. Expand the Explorer tree to verify the dtaset and tables were created. 
-
+5. Expand the Explorer tree to verify the dataset and tables were created. 
 
 6. Now, load some data into the tables. 
 
@@ -75,7 +73,7 @@ FROM FILES (
   uris = ['gs://bigquery-demo-bucket/animals-dataset/Pets.csv']);
 ```
 
-6. Now, run a couple queries as a test. Make sure both return results as you would expect. 
+7. Now, run a couple queries as a test. Make sure both return results as you would expect. 
 
 ```
 SELECT * FROM animals_dataset.Owners;
@@ -86,6 +84,8 @@ SELECT * FROM animals_dataset.Pets;
 ```
 
 ## Task 2. DML statements (INSERT, UPDATE, DELETE)
+
+In SQL, DML stands for Data Manipulation Langauge. These are statements that are used to add, alter, and delete data from the database. They are used in BigQuery just like they are used in other databases. 
 
 1. Run the following query to add the owner, Mary. 
 
@@ -142,10 +142,9 @@ DELETE FROM animals_dataset.Pets WHERE Type = 'Frog';
 7. Check the Query Results pane. One row should have been removed from the Pets table. 
 
 
-
-
 ## Task 3. SQL SELECT statements
 
+SELECT statements in BigQuery are very similar as they are in other databases. As with many databases, there are relatively minor differences due the the platform. Let's take a look at some examples in this section. 
 
 1. Use a JOIN to select all the Owners and their Pets.
 
@@ -221,7 +220,6 @@ GROUP BY
   o.Name
 ORDER BY
   count DESC;
-
 ```
 
 6. Now, return the pets as an array using the ARRAY_AGG and STRUCT functions. 
@@ -243,7 +241,7 @@ ON
 GROUP BY o.OwnerID, o.Name
 ```
 
-7. You can use the WITH statement to query from the results of another query. This avoids using nested SQL statements and makes the code easier to read. In the example below, we wrap the previous query with the WITH statement and then run a query just to get the pets array. 
+7. You can use the WITH statement to query the results of another query. This avoids using nested SQL statements and makes the code easier to read. In the example below, we wrap the previous query with the WITH statement and then run a query just to get the pets array. 
 
 ```
 WITH owners_pets as (SELECT
@@ -316,7 +314,6 @@ ORDER BY PetName;
 
 8. Now, UNNEST the pets array and just get the big pets (those over 20 pounds). _The CROSS JOIN might be a little different than what you are used to, but it works._
 
-
 ```
 WITH owners_pets as (SELECT
   o.OwnerID,
@@ -342,6 +339,8 @@ GROUP BY OwnerID, OwnerName;
 ```
 
 ## Task 4. DDL statements
+
+In SQL, DDL stands for Data Definition Language. Earlier in this lab, you used DDL statements to create the dataset and tables for the pets database. Now, you will see a few more examples where you will transform tables into other tables, and create views. 
 
 1. Earlier you saw how to write a query to return nested-repeated data. Now, use a CREATE TABLE query write those results into a table. 
 

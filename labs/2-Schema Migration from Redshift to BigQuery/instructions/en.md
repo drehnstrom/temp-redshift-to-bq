@@ -24,11 +24,9 @@ In this lab, you learn how to:
 
 1. In the Google Cloud Console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)) select __BigQuery__. 
 
-
 2. In the SQL Workspace toolbar, click on the Editor icon to open the SQL code editor.
 
 ![Open SQL Editor Icon](img/open-sql-editor.png)
-
 
 3. Paste the following SQL code and click the __Run__ button to create a dataset named `ticket_sales`
 
@@ -41,7 +39,6 @@ CREATE SCHEMA IF NOT EXISTS ticket_sales OPTIONS(
 
 ![Go to Dataset](img/go-to-dataset.png)
 
-
 5. Back in the SQL code editor, replace the existing code with the following CREATE TABLE statement, and click the __Run__ button. This code creates a table called `categories` in the dataset you just created. 
 
 ```
@@ -53,7 +50,6 @@ CREATE TABLE ticket_sales.categories(
 ```
 
 6. When the query completes, go to the Results pane and click the __Go to Table__ button. 
-
 
 7. There is no data in the table. Again in the SQL code editor, run the following code to load data into the `categories` table from a CSV file in Google Cloud Storage. 
 
@@ -68,12 +64,11 @@ FROM FILES (
 
 8. Run the following SELECT statement to see if the data was loaded into the table. 
 
-
 ```
 SELECT * FROM ticket_sales.categories;
 ```
 
-9. At this point you have seen how to use SQL to create a Dataset and a Table, and lod data into it. You will create a number of other tables now for the Ticket Sales example (_this is really just more of the same_). <div>Quickly read through the code below, and then run it to create the rest of the tables.</div>
+9. At this point you have seen how to use SQL to create a Dataset and a Table, and load data into it. Now, you will create a number of other tables for the Ticket Sales example (_this is really just more of the same_). <div>Quickly read through the code below, and then run it to create the rest of the tables.</div>
 
 ```
 CREATE TABLE ticket_sales.dates(
@@ -149,7 +144,7 @@ CREATE TABLE ticket_sales.users(
 
 ![Tickets Database Explorer](img/tickets-database-explorer.png)
 
-11. As before, you need to load the data into the tables. Run the following SQL statements to do that. _This is just like the command you ran earlier only for the other tables._ 
+11. As before, you need to load the data into the tables. Run the following SQL statements to do that. _This is just like the command you ran earlier, but for the other tables._ 
 
 ```
 LOAD DATA INTO ticket_sales.dates
@@ -216,6 +211,7 @@ ON
   c.catid = e.catid
 ```
 
+
 ## Task 2. Create partitioned tables
 
 1. In the query editor, paste the following code, but __do not__ click Run. 
@@ -256,7 +252,7 @@ AS (
 SELECT * FROM ticket_sales.sales_partitioned_by_date;
 ```
 
-6. Now, paste the following query. Notice, significantly less data will be processed when the query is run. 
+6. Now, paste the following query. Notice, significantly less data will be processed when the query is run. Less data processed means less cost and faster queries. 
 
 ```
 SELECT * FROM ticket_sales.sales_partitioned_by_date WHERE DATE(saletime) = '2008-10-18';
@@ -267,7 +263,7 @@ SELECT * FROM ticket_sales.sales_partitioned_by_date WHERE DATE(saletime) = '200
 
 A clustered table is sorted by 1 to 4 columns. When you have a lot of data, clustering will make joins, group-bys, searches, and sorting faster. 
 
-1. Run the followiung query. This query uses one of Google's public datasets that contains a lot of data (in this case 10 billion rows). The query counts views by language in a table of Wikipedia data. 
+1. Run the followiung query. This query uses one of Google's public datasets that contains a lot of data (_in this case 10 billion rows_). The query counts views by language in a table of Wikipedia data. 
 
 ```
 SELECT
@@ -324,6 +320,7 @@ ORDER BY
 6. As before, when the query completes, examine its execution details. Notice, the number if bytes shuffled is significantly lower. Less bytes shuffled means faster execution time. 
 
 ![Bytes Shuffled Clustered](img/bytes-shuffled-clustered.png)
+
 
 ## Task 3. Query nested and repeated Fields
 
