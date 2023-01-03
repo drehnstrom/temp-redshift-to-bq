@@ -2,14 +2,14 @@
 
 ## Overview
 
-In this lab, you will define schemas in BigQuery, create partitioned and cluster tables, and query nested and repeated fields.
+In this lab, you define schemas in BigQuery, create partitioned and cluster tables, and query nested and repeated fields.
 
 ## Objectives
 
 In this lab, you learn how to:
 * Define schemas in BigQuery
-* Create partitioned and clustered Tables
-* Query nested and repeated Fields
+* Create partitioned and clustered tables
+* Query nested and repeated fields
 
 
 ## Setup and Requirements
@@ -22,9 +22,9 @@ In this lab, you learn how to:
 
 ## Task 1. Define schemas in BigQuery
 
-1. In the Google Cloud Console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)) select __BigQuery__. 
+1. In the Google Cloud console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)), select __BigQuery__. 
 
-2. In the SQL Workspace toolbar, click on the Editor icon to open the SQL code editor.
+2. In the SQL Workspace toolbar, click the Editor icon to open the SQL code editor.
 
 ![Open SQL Editor Icon](img/open-sql-editor.png)
 
@@ -35,11 +35,11 @@ CREATE SCHEMA IF NOT EXISTS ticket_sales OPTIONS(
   location="us");
 ```
 
-4. When the Query completes, in the Results pane, click the __Go to Dataset__ button. Also, in the Explorer pane, expand your project to see that the dataset was created. 
+4. When the query completes, in the __Results__ pane, click the __Go to Dataset__ button. Also, in the Explorer pane, expand your project to verify that the dataset was created. 
 
 ![Go to Dataset](img/go-to-dataset.png)
 
-5. Back in the SQL code editor, replace the existing code with the following CREATE TABLE statement, and click the __Run__ button. This code creates a table called `categories` in the dataset you just created. 
+5. Return to the SQL code editor and replace the existing code with the following CREATE TABLE statement, then click the __Run__ button. This code creates a table called `categories` in the dataset you just created. 
 
 ```
 CREATE TABLE ticket_sales.categories(
@@ -49,9 +49,9 @@ CREATE TABLE ticket_sales.categories(
   catdesc STRING);
 ```
 
-6. When the query completes, go to the Results pane and click the __Go to Table__ button. 
+6. When the query completes, go to the __Results__ pane and click the __Go to Table__ button. 
 
-7. There is no data in the table. Again in the SQL code editor, run the following code to load data into the `categories` table from a CSV file in Google Cloud Storage. 
+7. There is no data in the table. Again, in the SQL code editor, run the following code to load data into the `categories` table from a CSV file in Cloud Storage. 
 
 ```
 LOAD DATA INTO ticket_sales.categories
@@ -62,13 +62,13 @@ FROM FILES (
   uris = ['gs://bigquery-demo-bucket/ticket-sales/categories.csv']);
 ```
 
-8. Run the following SELECT statement to see if the data was loaded into the table. 
+8. Run the following SELECT statement to confirm the data was loaded into the table. 
 
 ```
 SELECT * FROM ticket_sales.categories;
 ```
 
-9. At this point you have seen how to use SQL to create a Dataset and a Table, and load data into it. Now, you will create a number of other tables for the Ticket Sales example (_this is really just more of the same_). <div>Quickly read through the code below, and then run it to create the rest of the tables.</div>
+9. At this point, you have seen how to use SQL to create a dataset and a table, and load data into it. Now, you create a number of other tables for the Ticket Sales example (_this is really just more of the same_). <div>Quickly read through the code below, and then run it to create the rest of the tables.</div>
 
 ```
 CREATE TABLE ticket_sales.dates(
@@ -144,7 +144,7 @@ CREATE TABLE ticket_sales.users(
 
 ![Tickets Database Explorer](img/tickets-database-explorer.png)
 
-11. As before, you need to load the data into the tables. Run the following SQL statements to do that. _This is just like the command you ran earlier, but for the other tables._ 
+11. As before, you must load the data into the tables. Run the following SQL statements to do that. _This is just like the command you ran earlier, but for the other tables._ 
 
 ```
 LOAD DATA INTO ticket_sales.dates
@@ -190,12 +190,12 @@ FROM FILES (
   uris = ['gs://bigquery-demo-bucket/ticket-sales/venues.csv']);
 ```
 
-12. When the code completes, look in the results pane to ensure all the LOAD statements worked. 
+12. When the code completes, review the results pane to ensure all the LOAD statements worked as expected. 
 
 ![Load Results](img/load-results.png)
 
 
-13. Run the following query just as a test. This just shows events by category. 
+13. Run the following query as a test. This shows events by category. 
 
 ```
 SELECT
@@ -220,12 +220,12 @@ ON
 SELECT * FROM ticket_sales.sales;
 ```
 
-2. Notice, the number of bytes that will be processed when the query is run. 
+2. Notice the number of bytes that will be processed when the query is run. 
 
 ![Bytes Processed](img/bytes-when-run.png)
 
 
-3. Now, paste the following query. Notice the number of bytes processed is the same  even though the query is only asking for sales from a specific date. 
+3. Now, paste the following query. Notice the number of bytes processed is the same even though the query is only asking for sales from a specific date. 
 
 ```
 SELECT * FROM ticket_sales.sales WHERE saletime = '12/14/2008 09:13:17';
@@ -246,13 +246,13 @@ AS (
     ticket_sales.sales );
 ```
 
-5. Now, paste in the following SELECT statement. As before __do not__ click the Run button. Examine how many bytes will be processed by the query. 
+5. Paste in the following SELECT statement. As before __do not__ click the Run button. Examine how many bytes will be processed by the query. 
 
 ```
 SELECT * FROM ticket_sales.sales_partitioned_by_date;
 ```
 
-6. Now, paste the following query. Notice, significantly less data will be processed when the query is run. Less data processed means less cost and faster queries. 
+6. Now, paste the following query. Notice significantly less data will be processed when the query is run. Less data processed means less cost and faster queries. 
 
 ```
 SELECT * FROM ticket_sales.sales_partitioned_by_date WHERE DATE(saletime) = '2008-10-18';
@@ -263,7 +263,7 @@ SELECT * FROM ticket_sales.sales_partitioned_by_date WHERE DATE(saletime) = '200
 
 A clustered table is sorted by 1 to 4 columns. When you have a lot of data, clustering will make joins, group-bys, searches, and sorting faster. 
 
-1. Run the followiung query. This query uses one of Google's public datasets that contains a lot of data (_in this case 10 billion rows_). The query counts views by language in a table of Wikipedia data. 
+1. Run the following query. This query uses one of Google's public datasets that contains a lot of data (_in this case, 10 billion rows_). The query counts views by language in a table of Wikipedia data. 
 
 ```
 SELECT
@@ -277,19 +277,19 @@ ORDER BY
   views DESC;
 ```
 
-2. After the table runs, in the results pane, examine its execution details. Note the number of bytes shuffled. 
+2. After the table runs, in the __Results__ pane, examine its execution details. Note the number of bytes shuffled. 
 
 ![Bytes Shuffled](img/bytes-shuffled.png)
 
 
-3. Now, you will re-create the same table, but cluster on the language field. Run the following SQL command to create a new dataset in your project called `wiki_clustered`.
+3. Now, you re-create the same table, but cluster on the language field. Run the following SQL command to create a new dataset in your project called `wiki_clustered`.
 
 ```
 CREATE SCHEMA IF NOT EXISTS wiki_clustered OPTIONS( 
   location="us");
 ```
 
-4. Now, create the clustered table using the following statement (_this command to will take a minute or so to run_).
+4. Create the clustered table using the following statement (_this command will take a minute or so to run_).
 
 ```
 CREATE OR REPLACE TABLE
@@ -317,14 +317,14 @@ ORDER BY
   views DESC;
 ```
 
-6. As before, when the query completes, examine its execution details. Notice, the number if bytes shuffled is significantly lower. Less bytes shuffled means faster execution time. 
+6. As before, when the query completes, examine its execution details. Notice the number of bytes shuffled is significantly lower. Less bytes shuffled means faster execution time. 
 
 ![Bytes Shuffled Clustered](img/bytes-shuffled-clustered.png)
 
 
 ## Task 3. Query nested and repeated Fields
 
-1. Run the following query. <div>__Note:__ There is a one-to-many relationship between the events table and the sales table. When you run this query, you see a lot of repetition on the one-side of the relationships. For every sale, the event is repeated. </div>
+1. Run the following query. <div>__Note:__ There is a one-to-many relationship between the events table and the sales table. When you run this query, you see a lot of repetition on the one side of the relationships. For every sale, the event is repeated. </div>
 
 ```
 SELECT
@@ -343,7 +343,7 @@ JOIN
 ORDER BY eventid, eventname;
 ```
 
-2. To remove the repetition, you can aggregate the sales data into an array. Run the following code to do that. __Notice__, the code is mostly the same as the previous code, except for the `ARRAY_AGG`, `STRUCT`, and `GROUP BY` functions. Examine the results, now rather than repeating the data on the one-side of the relationship, the data on the many side is in an array of structs. 
+2. To remove the repetition, you can aggregate the sales data into an array. Run the following code to do that. __Notice__, the code is mostly the same as the previous code, except for the `ARRAY_AGG`, `STRUCT`, and `GROUP BY` functions. Examine the results and notice that now rather than repeating the data on the one side of the relationship, the data on the many side is in an array of structs. 
 
 ```
 SELECT
@@ -364,7 +364,7 @@ GROUP BY eventid, eventname
 ORDER BY eventid, eventname;
 ```
 
-3. If you want to, you can wrap the previous query in a CREATE TABLE statement, and this creates a nested hierarchical table. Run the following code to do that. 
+3. You can wrap the previous query in a CREATE TABLE statement, and this creates a nested hierarchical table. Run the following code to do that. 
 
 ```
 CREATE OR REPLACE tABLE ticket_sales.event_sales
@@ -387,7 +387,7 @@ GROUP BY eventid, eventname
 );
 ```
 
-4. When the Query completes, click the __Go to Table__ button. Examine the schema. It should look as follows:
+4. When the query completes, click the __Go to Table__ button. Examine the schema. It should look as follows:
 
 ![Nested Schema](img/nested-schema.png)
 
@@ -405,7 +405,7 @@ ORDER BY sale_count DESC;
 
 ![Sale Count by Event Results](img/results-salecount-by-event.png)
 
-6. How about if you wanted to see the top commissions per event. That would require querying inside the array. To do that, you need to unnest or flatten the array. Run the query below to see the top 2 commissions per event. __Note:__ the UNNEST function is used to flatten the sales array. Then, it can be queried, and those results are converted into an array. 
+6. What if you wanted to see the top commissions per event? That would require querying inside the array. To do that, you need to unnest or flatten the array. Run the query below to see the top tqo commissions per event. __Note:__ the UNNEST function is used to flatten the sales array. Then, it can be queried and those results are converted into an array. 
 
 ```
 SELECT
