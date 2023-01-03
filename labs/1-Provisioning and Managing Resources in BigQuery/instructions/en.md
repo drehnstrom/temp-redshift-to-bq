@@ -76,19 +76,19 @@ LIMIT
 
 ### Create an external table. 
 
-8. As before, click the __Action__ menu next to the `wikipedia_data` dataset, and click __Create table__. 
+10. As before, click the __Action__ menu next to the `wikipedia_data` dataset, and click __Create table__. 
 
-9. Set the Source to __Google Cloud Storage__, and set the file pattern to `bigquery-demo-bucket/wikipedia-data/parquet/Wiki1B-*`. Also, set the file format to __Parquet__.
+11. Set the Source to __Google Cloud Storage__, and set the file pattern to `bigquery-demo-bucket/wikipedia-data/parquet/Wiki1B-*`. Also, set the file format to __Parquet__.
 
 __Note:__ This is the same data that you imported earlier, but this data is in Parquet format. This is a columnar format similar to BigQuery's native format and also Redshift's native format. 
 
-10. In the Destination section, confirm the dataset is set to `wikipedia_data`, set the table name to `wiki_external_table_parquet`, and set the table type property to __External table__. 
+12. In the Destination section, confirm the dataset is set to `wikipedia_data`, set the table name to `wiki_external_table_parquet`, and set the table type property to __External table__. 
 
 __Note:__ External tables are not imported into BigQuery Storage. The data stays in Cloud Storage, and only the schema is added to BigQuery. The table can be queried in the same way though. 
 
-11. As before, select the __Auto detect__ checkbox in the schema section. Then, click the __Create table__ button. 
+13. As before, select the __Auto detect__ checkbox in the schema section. Then, click the __Create table__ button. 
 
-12. Run the same query as before, but using the external table. Compare the __Query results__ and __Job information__ from each one. You should find that the query using the native BigQuery table ran faster than the one that used the external table.   
+14. Run the same query as before, but using the external table. Compare the __Query results__ and __Job information__ from each one. You should find that the query using the native BigQuery table ran faster than the one that used the external table.   
 
 ```
 SELECT
@@ -186,13 +186,13 @@ bq ls bikes_database
 bq head bikes_database.stations
 ```
 
-8. Use the following command to see some data from the trips table. 
+9. Use the following command to see some data from the trips table. 
 
 ```
 bq head bikes_database.trips
 ```
 
-9. Now run a query.
+10. Now run a query.
 
 ```
 bq query """
@@ -212,9 +212,9 @@ ORDER BY
 """
 ```
 
-10. In Cloud Shell, type `exit` and then refresh the BigQuery UI. In the Explorer pane, expand your project to find your newly added dataset and tables. 
+11. In Cloud Shell, type `exit` and then refresh the BigQuery UI. In the Explorer pane, expand your project to find your newly added dataset and tables. 
 
-11. Explore the UI, and try experimenting with some queries to get familiar with it. 
+12. Explore the UI, and try experimenting with some queries to get familiar with it. 
 
 
 ### **Congratulations!** You have used the Google Cloud console and the CLI to create BigQuery datasets and tables. You also controlled access to and shared data and momitored your BigQuery usage. 
