@@ -1,16 +1,15 @@
 ---
 schema_version: 1
-title: 'Asymmetric Encryption to Sign and Verify Data [Eng]'
-description: In this lab, you use asymmetric encryption to sign a document and then use the signature to verify if the document has been modified. 
+title: 'Schema Migration from Redshift to BigQuery'
+description: In this lab, you will define schemas in BigQuery, create partitioned and cluster tables, and query nested and repeated fields.
 default_locale: en
-duration: 40
-max_duration: 40
+duration: 60
+max_duration: 60
 level: introductory
 tags:
-- ROI
-- KMS
-- Signature
-- Asymmetric encryption
+- BigQuery
+- Redshift
+- Migration
 credits: 0
 tagline:
 resources: []
