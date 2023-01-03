@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lab, you will program SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You will create Tables and Views using SQL DDL statements, and you will create custom behaviors using user-defined functions (UDFs) and stored procedures. 
+In this lab, you program SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You create tables and views using SQL DDL statements, and you create custom behaviors using user-defined functions (UDFs) and stored procedures. 
 
 ## Objectives
 
@@ -10,7 +10,7 @@ In this lab, you learn how to:
 * Alter data using SQL DML statements
 * Query data using SQL SELECT statements
 * Define tables and views using DDL statements
-* Program custom behaviors using UDFs and Procedures
+* Program custom behaviors using UDFs and procedures
  
 
 ## Setup and Requirements
@@ -23,13 +23,11 @@ In this lab, you learn how to:
 
 ## Task 1. Creating the Pets database
 
-1. In the Google Cloud Console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)) select __BigQuery__. 
+1. In the Google Cloud console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)), select __BigQuery__. 
 
-
-2. In the SQL Workspace toolbar, click on the Editor icon to open the SQL code editor.
+2. In the SQL Workspace toolbar, click the Editor icon to open the SQL code editor.
 
 ![Open SQL Editor Icon](img/open-sql-editor.png)
-
 
 3. Paste the following SQL code and click the __Run__ button to create a dataset named `ticket_sales`
 
@@ -38,7 +36,7 @@ CREATE SCHEMA IF NOT EXISTS animals_dataset OPTIONS(
   location="us");
 ```
 
-4. Create two tables: `owners` and `pets` by running the following SQL DDL statements, 
+4. Create two tables: `owners` and `pets` by running the following SQL DDL statements. 
 
 ```
 CREATE TABLE animals_dataset.Owners(
@@ -57,7 +55,7 @@ CREATE TABLE animals_dataset.Pets(
 
 5. Expand the Explorer tree to verify the dataset and tables were created. 
 
-6. Now, load some data into the tables. 
+6. Load some data into the tables. 
 
 ```
 LOAD DATA INTO animals_dataset.Owners
@@ -73,7 +71,7 @@ FROM FILES (
   uris = ['gs://bigquery-demo-bucket/animals-dataset/Pets.csv']);
 ```
 
-7. Now, run a couple queries as a test. Make sure both return results as you would expect. 
+7. Run a couple queries as a test. Make sure both return results as you would expect. 
 
 ```
 SELECT * FROM animals_dataset.Owners;
@@ -96,7 +94,7 @@ VALUES
   (9, 'Mary');
 ```
 
-2. Now, add Mary's two dogs.
+2. Add Mary's two dogs.
 
 ```
 INSERT INTO
@@ -131,20 +129,20 @@ WHERE
 UPDATE animals_dataset.Pets SET Type = 'Canine' WHERE Type = 'Dog';
 ```
 
-5. Run a query to verify that all the Dogs are now Canines
+5. Run a query to verify that all the Dogs are now Canines.
 
-6. The boss also decide that Frogs were not Pets. She said to delete all the Frogs from the Pets table. 
+6. The boss also decided that Frogs were not Pets. She said to delete all the Frogs from the Pets table. 
 
 ```
 DELETE FROM animals_dataset.Pets WHERE Type = 'Frog';
 ```
 
-7. Check the Query Results pane. One row should have been removed from the Pets table. 
+7. Check the __Query results__ pane. One row should have been removed from the Pets table. 
 
 
 ## Task 3. SQL SELECT statements
 
-SELECT statements in BigQuery are very similar as they are in other databases. As with many databases, there are relatively minor differences due the the platform. Let's take a look at some examples in this section. 
+SELECT statements in BigQuery are very similar to as they are in other databases. As with many databases, there are relatively minor differences due the the platform. Let's take a look at some examples in this section. 
 
 1. Use a JOIN to select all the Owners and their Pets.
 
@@ -222,7 +220,7 @@ ORDER BY
   count DESC;
 ```
 
-6. Now, return the pets as an array using the ARRAY_AGG and STRUCT functions. 
+6. Return the pets as an array using the ARRAY_AGG and STRUCT functions. 
 
 ```
 SELECT
@@ -241,7 +239,7 @@ ON
 GROUP BY o.OwnerID, o.Name
 ```
 
-7. You can use the WITH statement to query the results of another query. This avoids using nested SQL statements and makes the code easier to read. In the example below, we wrap the previous query with the WITH statement and then run a query just to get the pets array. 
+7. You can use the WITH statement to query the results of another query. This avoids using nested SQL statements and makes the code easier to read. In the example below, we wrap the previous query with the WITH statement and then run a query to get the pets array. 
 
 ```
 WITH owners_pets as (SELECT
@@ -262,7 +260,7 @@ GROUP BY o.OwnerID, o.Name)
 SELECT pets from owners_pets;
 ```
 
-6. Now, let's say you only want the owners and the names of their pets. Use a CROSS JOIN to join the owners with the array of pets, then just select the data you want to see.  
+8. Let's say you only want the owners and the names of their pets. Use a CROSS JOIN to join the owners with the array of pets, then select the data you want to see.  
 
 ```
 WITH owners_pets as (SELECT
@@ -287,7 +285,7 @@ CROSS JOIN
 GROUP BY OwnerID, OwnerName;
 ```
 
-7. Now, let's return just the names pets sorted. 
+9. Now, let's return just the names pets sorted. 
 
 ```
 WITH owners_pets as (SELECT
@@ -312,7 +310,7 @@ CROSS JOIN
 ORDER BY PetName;
 ```
 
-8. Now, UNNEST the pets array and just get the big pets (those over 20 pounds). _The CROSS JOIN might be a little different than what you are used to, but it works._
+10. UNNEST the pets array and just get the big pets (those over 20 pounds). _The CROSS JOIN might be a little different than what you are used to, but it works._
 
 ```
 WITH owners_pets as (SELECT
@@ -340,9 +338,9 @@ GROUP BY OwnerID, OwnerName;
 
 ## Task 4. DDL statements
 
-In SQL, DDL stands for Data Definition Language. Earlier in this lab, you used DDL statements to create the dataset and tables for the pets database. Now, you will see a few more examples where you will transform tables into other tables, and create views. 
+In SQL, DDL stands for Data Definition Language. Earlier in this lab, you used DDL statements to create the dataset and tables for the pets database. Now, you see a few more examples where you transform tables into other tables and create views. 
 
-1. Earlier you saw how to write a query to return nested-repeated data. Now, use a CREATE TABLE query write those results into a table. 
+1. Earlier you saw how to write a query to return nested-repeated data. Now, use a CREATE TABLE query to write those results into a table. 
 
 ```
 CREATE OR REPLACE TABLE
@@ -391,7 +389,7 @@ CREATE OR REPLACE VIEW
     weight <= 20);
 ```
 
-5. A materialized view is recomputed periodically and the results are returned without having to re-run the query. Materialized views can be especially useful for queries that require complex processing like aggregations. Use the code below to create a materialized view, and then run a query to verify the results. 
+5. A materialized view is recomputed periodically and the results are returned without having to rerun the query. Materialized views can be especially useful for queries that require complex processing such as aggregations. Use the code below to create a materialized view, and then run a query to verify the results. 
 
 ```
 CREATE OR REPLACE MATERIALIZED VIEW
@@ -408,7 +406,7 @@ CREATE OR REPLACE MATERIALIZED VIEW
 
 ## Task 5. UDFs and stored procedures 
 
-User-defined functions can be used for any type of complex processing. Use a UDF when there is no built-in function that does what you need to do. <div>Stored procedures allow you to wrap one or more statements within a function. These statements can include both SELECT and DML statements like INSERT, UPDATE, and DELETE.</div>
+User-defined functions can be used for any type of complex processing. Use a UDF when there is no built-in function that does what you need to do. <div>Stored procedures allow you to wrap one or more statements within a function. These statements can include both SELECT and DML statements such as INSERT, UPDATE, and DELETE.</div>
 
 
 1. Use the code below to create a user-defined function that converts pounds into kilos. 
@@ -428,7 +426,7 @@ SELECT name, weight as pounds, animals_dataset.PoundsToKilos(Weight) as Kilos
 FROM animals_dataset.Pets;
 ```
 
-3. We can make adding a new pet easier using a Stored Procedure. There is no built-in counter in BigQuery. So, the following procedure will find the largest ID in the Pets table, and add 1 to it, It will then use that value for the ID of a new Pet. Note, the use of the output variable. When the new pet is added the value of the new ID will be returned. 
+3. We can make adding a new pet easier using a Stored Procedure. There is no built-in counter in BigQuery. So, the following procedure finds the largest ID in the Pets table and adds 1 to it. It then uses that value for the ID of a new Pet. Note the use of the output variable. When the new pet is added, the value of the new ID is returned. 
 
 ```
 CREATE OR REPLACE PROCEDURE animals_dataset.create_pet(
@@ -441,7 +439,7 @@ INSERT INTO animals_dataset.Pets (PetID, OwnerID, Type, Name, Weight)
 END
 ```
 
-4. Test the procedure using the following code. After the code completes, take a look at the resutls of the SELECT statement in the All Results pane to see the new pet. Note, the output variable is passed as the last argument in the function call. 
+4. Test the procedure using the following code. After the code completes, take a look at the results of the SELECT statement in the All Results pane to see the new pet. Note the output variable is passed as the last argument in the function call. 
 
 ```
 DECLARE newPetID INT64;
@@ -453,7 +451,7 @@ SELECT * FROM animals_dataset.Pets WHERE PetID = newPetID;
 5. Try adding a couple more pets. Notice, the ID field will keep incrementing. 
 
 
-### **Congratulations!** You have programmed SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You created Tables and Views using DDL statements in SQL, and you created custom behaviors using user-defined functions and stored procedures. 
+### **Congratulations!** You have programmed SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You created tables and views using DDL statements in SQL, and you created custom behaviors using user-defined functions and stored procedures. 
 
 
 ![[/fragments/endqwiklab]]
