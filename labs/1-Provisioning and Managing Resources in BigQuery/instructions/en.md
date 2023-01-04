@@ -212,7 +212,7 @@ ORDER BY
 """
 ```
 
-11. In Cloud Shell, type `exit` and then refresh the BigQuery UI. In the Explorer pane, expand your project to find your newly added dataset and tables. 
+11. In Cloud Shell, type `exit` and then use the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)) to return the BigQuery UI. In the Explorer pane, expand your project to find your newly added dataset and tables. 
 
 12. Explore the UI, and try experimenting with some queries to get familiar with it. 
 
