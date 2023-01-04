@@ -127,7 +127,7 @@ __Note:__ You have given Mike permissions to edit data in the dataset. You now g
 
 1. In the Google Cloud console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)), scroll down to the __Operations__ section and select __Monitoring__. 
 
-2. From the left-hand pane of the Monitoring UI, select __Dashboards__. 
+2. From the left-hand pane of the Monitoring UI, select __Dashboards__. If you are warned about unsaved work, select __LEAVE__
 
 ![Monitoring Dashboards](img/monitoring-icon.png)
 
