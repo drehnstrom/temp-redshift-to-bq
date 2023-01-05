@@ -317,7 +317,7 @@ ORDER BY
   views DESC;
 ```
 
-6. As before, when the query completes, examine its execution details. Notice the number of bytes shuffled is significantly lower. Less bytes shuffled means faster execution time. 
+6. As before, when the query completes, examine its execution details. Notice the number of bytes shuffled is significantly lower. Fewer bytes shuffled means faster execution time. 
 
 ![Bytes Shuffled Clustered](img/bytes-shuffled-clustered.png)
 
