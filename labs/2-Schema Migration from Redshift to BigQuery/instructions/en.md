@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lab, you define schemas in BigQuery, create partitioned and cluster tables, and query nested and repeated fields.
+In this lab, you define schemas in BigQuery, create partitioned and clustered tables, and query nested and repeated fields.
 
 ## Objectives
 
