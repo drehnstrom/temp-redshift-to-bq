@@ -310,7 +310,7 @@ CROSS JOIN
 ORDER BY PetName;
 ```
 
-10. UNNEST the pets array and just get the big pets (those over 20 pounds). _The CROSS JOIN might be a little different than what you are used to, but it works._
+10. UNNEST the pets array and just get the big pets (those over 20 pounds). _The CROSS JOIN might be a little different from what you are used to, but it works._
 
 ```
 WITH owners_pets as (SELECT
