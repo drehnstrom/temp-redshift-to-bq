@@ -289,7 +289,7 @@ CREATE SCHEMA IF NOT EXISTS wiki_clustered OPTIONS(
   location="us");
 ```
 
-4. Create the clustered table using the following statement (_this command will take a minute or so to run_).
+4. Create the clustered table using the following statement (_this command will take a minute or two to run_).
 
 ```
 CREATE OR REPLACE TABLE
