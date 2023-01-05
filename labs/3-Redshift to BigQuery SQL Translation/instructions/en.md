@@ -285,7 +285,7 @@ CROSS JOIN
 GROUP BY OwnerID, OwnerName;
 ```
 
-9. Now, let's return just the names pets sorted. 
+9. Now, let's return just the pets' names sorted. 
 
 ```
 WITH owners_pets as (SELECT
