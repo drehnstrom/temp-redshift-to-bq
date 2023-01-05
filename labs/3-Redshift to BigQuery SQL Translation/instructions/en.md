@@ -29,7 +29,7 @@ In this lab, you learn how to:
 
 ![Open SQL Editor Icon](img/open-sql-editor.png)
 
-3. Paste the following SQL code and click the __Run__ button to create a dataset named `ticket_sales`
+3. Paste the following SQL code and click the __Run__ button to create a dataset named `animals_dataset`
 
 ```
 CREATE SCHEMA IF NOT EXISTS animals_dataset OPTIONS( 
