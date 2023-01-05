@@ -157,7 +157,7 @@ ON
   o.OwnerID = p.OwnerID;
 ```
 
-2. Add a WHERE clause to only select the Dogs. 
+2. Add a WHERE clause to only select the Canines. 
 
 ```
 SELECT
