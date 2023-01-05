@@ -420,7 +420,7 @@ ORDER BY eventid;
 
 ![Top Commissions Results](img/results-top-comm.png)
 
-### **Congratulations!** You have defined schemas in BigQuery, created partitioned and cluster tables, and queried nested and repeated fields.
+### **Congratulations!** You have defined schemas in BigQuery, created partitioned and clustered tables, and queried nested and repeated fields.
 
 
 ![[/fragments/endqwiklab]]
