@@ -405,7 +405,7 @@ ORDER BY sale_count DESC;
 
 ![Sale Count by Event Results](img/results-salecount-by-event.png)
 
-6. What if you wanted to see the top commissions per event? That would require querying inside the array. To do that, you need to unnest or flatten the array. Run the query below to see the top tqo commissions per event. __Note:__ the UNNEST function is used to flatten the sales array. Then, it can be queried and those results are converted into an array. 
+6. What if you wanted to see the top commissions per event? That would require querying inside the array. To do that, you need to unnest or flatten the array. Run the query below to see the top two commissions per event. __Note:__ the UNNEST function is used to flatten the sales array. Then, it can be queried and those results are converted into an array. 
 
 ```
 SELECT
