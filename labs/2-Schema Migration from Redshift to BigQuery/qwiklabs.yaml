@@ -1,6 +1,6 @@
 ---
 schema_version: 1
-title: 'Schema Migration from Redshift to BigQuery'
+title: 'Schema Migration from Amazon Redshift to BigQuery'
 description: In this lab, you define schemas in BigQuery, create partitioned and cluster tables, and query nested and repeated fields.
 default_locale: en
 duration: 60
