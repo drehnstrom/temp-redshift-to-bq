@@ -1,6 +1,6 @@
 ---
 schema_version: 1
-title: 'SQL Translation from Redshift to BigQuery'
+title: 'SQL Translation from Amazon Redshift to BigQuery'
 description: In this lab, you program SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You create tables and views using SQL DDL statements, and you create custom behaviors using user-defined functions (UDFs) and stored procedures. 
 default_locale: en
 duration: 60
