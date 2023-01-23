@@ -80,7 +80,7 @@ LIMIT
 
 11. Set the Source to __Google Cloud Storage__, and set the file pattern to `bigquery-demo-bucket/wikipedia-data/parquet/Wiki1B-*`. Also, set the file format to __Parquet__.
 
-__Note:__ This is the same data that you imported earlier, but this data is in Parquet format. This is a columnar format similar to BigQuery's native format and also Redshift's native format. 
+__Note:__ This is the same data that you imported earlier, but this data is in Parquet format. This is a columnar format similar to BigQuery's native format and also Amazon Redshift's native format. 
 
 12. In the Destination section, confirm the dataset is set to `wikipedia_data`, set the table name to `wiki_external_table_parquet`, and set the table type property to __External table__. 
 
