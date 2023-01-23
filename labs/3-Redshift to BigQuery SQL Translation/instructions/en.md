@@ -1,4 +1,4 @@
-# SQL Translation from Redshift to BigQuery
+# SQL Translation from Amazon Redshift to BigQuery
 
 ## Overview
 
