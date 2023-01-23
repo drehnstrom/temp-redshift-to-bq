@@ -1,4 +1,4 @@
-# Schema Migration from Redshift to BigQuery
+# Schema Migration from Amazon Redshift to BigQuery
 
 ## Overview
 
