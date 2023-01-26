@@ -1,0 +1,35 @@
+---
+schema_version: 1
+title: 'Creating Spanner Instances and Databases (Console)'
+description: In this lab, you create Spanner instances and databases using the Google Cloud Console. 
+default_locale: en
+duration: 60
+max_duration: 60
+level: introductory
+tags:
+- Spanner
+- Instances
+- Databases
+credits: 0
+tagline:
+resources: []
+environment:
+  resources:
+  - type: gcp_project
+    id: project_0
+    ssh_key_user: user_0
+  - type: gcp_user
+    id: user_0
+    permissions:
+    - project: project_0
+      roles:
+      - roles/editor  
+  student_visible_outputs:
+  - label: Open Google Console
+    reference: project_0.console_url
+  - label: Username
+    reference: user_0.username
+  - label: Password
+    reference: user_0.password
+  - label: GCP Project ID
+    reference: project_0.project_id
