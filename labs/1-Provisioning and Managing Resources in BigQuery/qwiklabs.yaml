@@ -1,15 +1,15 @@
 ---
 schema_version: 1
-title: 'Provisioning and Managing Resources in BigQuery'
-description: In this lab, you use the Google Cloud console and the CLI to create BigQuery datasets and tables. You also control access to and share data and monitor your BigQuery usage. 
+title: 'Creating Spanner Instances and Databases (Console)'
+description: In this lab, you create Spanner instances and databases using the Google Cloud Console. 
 default_locale: en
 duration: 60
 max_duration: 60
 level: introductory
 tags:
-- BigQuery
-- Provisioning resources
-- Managing resources
+- Spanner
+- Instances
+- Databases
 credits: 0
 tagline:
 resources: []
@@ -24,10 +24,6 @@ environment:
     - project: project_0
       roles:
       - roles/editor  
-      - roles/cloudkms.admin
-      - roles/servicemanagement.quotaAdmin
-      - roles/cloudkms.cryptoKeyEncrypterDecrypter
-      - roles/cloudkms.cryptoKeySignerVerifier
   student_visible_outputs:
   - label: Open Google Console
     reference: project_0.console_url
