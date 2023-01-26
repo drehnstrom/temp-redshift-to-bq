@@ -8,7 +8,7 @@ max_duration: 60
 level: introductory
 tags:
 - BigQuery
-- Redshift
+- Amazon Redshift
 - SQL Translation
 credits: 0
 tagline:
