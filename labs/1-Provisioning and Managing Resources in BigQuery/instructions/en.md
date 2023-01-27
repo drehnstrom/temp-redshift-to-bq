@@ -25,7 +25,7 @@ In this lab, you learn how to:
 
 1. In the Google Cloud console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)), select __BigQuery__. 
 
-2. In the BigQuery UI Explorer pane, click the __Action__ menu next to your Project ID, and select __Create dataset__.
+2. In the BigQuery UI Explorer pane, click the __Action__ menu (_the one with the three dots_) next to your Project ID, and select __Create dataset__.
 
 ![Create Dataset Menu](img/create-dataset.png)
 
@@ -47,7 +47,7 @@ __Note:__ Notice the astericks (*) in the file pattern. There is approximately a
 
 5. Expand the __Advanced options__ section, and set the __Header rows to skip__ property to 1. Finally, click the __Create Table__ button. 
 
-6. When the load operation completes, in the Exporer pane, select the __Action__ menu next to the `wiki_table_csv` table and select __Query__. 
+6. When the load operation completes, in the Explorer pane, select the __Action__ menu next to the `wiki_table_csv` table and select __Query__. 
 
 7. In the Query editor, paste the following query and run it. _This query counts the number of views for Wikipedia articles with "GOOGLE" in the title_. 
 
@@ -113,13 +113,13 @@ LIMIT
 
 ![Share Dataset Menu](img/share-dataset.png)
 
-2. Make our colleague, Mike, a BigQuery Data Editor. Click the __Add principals__ button. Enter the email `michaelabel@google.com` and assign to him the role __BigQuery Data Editor__, and then click the __Save__ button. 
+2. Make our colleague, Doug, a BigQuery Data Editor. Click the __Add principals__ button. Enter the email `doug@roitraining.com` and assign to him the role __BigQuery Data Editor__, and then click the __Save__ button. 
 
 ![Dataset Permissions](img/dataset-permissions.png)
 
-__Note:__ You have given Mike permissions to edit data in the dataset. You now give everyone permissions to query the Wikipedia data. 
 
-3. As you just did, click the __Action__ menu next to `wikipedia_data`, and select __Share__.  Click the __Add principals__ button. This time, set the new principal to the key word `allAuthenticatedUsers`and assign to that principal the __BigQuery Data Viewer__ role. When prompted, click __Allow Public Access__.
+
+3. You have given Doug permissions to edit data in the dataset. You now give everyone permissions to query the Wikipedia data. <div> As you just did, click the __Action__ menu next to `wikipedia_data`, and select __Share__.  Click the __Add principals__ button. This time, set the new principal to the key word `allAuthenticatedUsers` and assign to that principal the __BigQuery Data Viewer__ role. When prompted, click __Allow Public Access__.</div>
 
 ![Make Public Dataset](img/make-public-dataset.png)
 
@@ -153,7 +153,7 @@ bq ls
 bq ls wikipedia_data
 ```
 
-4. Create a new dataset with the following command.
+4. Create a new dataset in the US with the following command.
 
 ```
 bq mk --location=US bikes_database
