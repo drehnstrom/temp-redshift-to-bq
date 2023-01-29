@@ -28,7 +28,7 @@ In this lab, you learn how to:
 
 1. In the Google Cloud console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)), select __BigQuery__. 
 
-2. In the BigQuery UI Explorer pane, click the __Action__ menu (_the one with the three dots_) next to your Project ID, and select __Create dataset__.
+2. In the BigQuery UI __Explorer__ pane, click the __Action__ menu (_the one with the three dots_) next to your Project ID, and select __Create dataset__.
 
 ![Create Dataset Menu](img/create-dataset.png)
 
@@ -36,7 +36,7 @@ In this lab, you learn how to:
 
 ## Task 2. Create native and external tables
 
-1. In the Explorer pane, click the __Action__ menu next to `wikipedia_data`, and select __Create table__.
+1. In the __Explorer__ pane, click the __Action__ menu next to `wikipedia_data`, and select __Create table__.
 
 ![Create Table Menu](img/create-table.png)
 
@@ -50,7 +50,7 @@ __Note:__ Notice the astericks (*) in the file pattern. There is approximately a
 
 5. Expand the __Advanced options__ section, and set the __Header rows to skip__ property to __1.__ Finally, click the __Create table__ button. 
 
-6. When the load operation completes, in the Explorer pane, select the __Action__ menu next to the `wiki_table_csv` table and select __Query__. 
+6. When the load operation completes, in the __Explorer__ pane, select the __Action__ menu next to the `wiki_table_csv` table and select __Query__. 
 
 7. In the __Query__ editor, paste the following query and run it. _This query counts the number of views for Wikipedia articles with "GOOGLE" in the title_. 
 
@@ -112,7 +112,7 @@ LIMIT
 
 ## Task 3. Control access to and share data
 
-1. In the Explorer pane, click the __Action__ menu next to `wikipedia_data`, and select __Share__.
+1. In the __Explorer__ pane, click the __Action__ menu next to `wikipedia_data`, and select __Share__.
 
 ![Share Dataset Menu](img/share-dataset.png)
 
@@ -214,7 +214,7 @@ ORDER BY
 """
 ```
 
-11. In Cloud Shell, type `exit` and then use the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)) to return the BigQuery UI. In the Explorer pane, expand your project to find your newly added dataset and tables. 
+11. In Cloud Shell, type `exit` and then use the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)) to return the BigQuery UI. In the __Explorer__ pane, expand your project to find your newly added dataset and tables. 
 
 12. Explore the UI, and try experimenting with some queries to get familiar with it. 
 
