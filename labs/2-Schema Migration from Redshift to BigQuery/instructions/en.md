@@ -2,6 +2,34 @@
 
 ## Overview
 
+Both Redshift and BigQuery support the ANSI SQL standard. Still there are some differences in datatypes and functionality. So, the schemas you may have used for your Redshift databases may need to be altered. 
+
+For example, a Create Table query for Redshift might look like this: 
+
+```
+CREATE TABLE categories(
+  catid smallint not null,
+  catgroup varchar(10),
+  catname varchar(10),
+  catdesc varchar(50));
+```
+
+In BigQuery it might look like this:
+
+```
+CREATE TABLE ticket_sales.categories(
+  catid INT64 NOT NULL,
+  catgroup STRING,
+  catname STRING,
+  catdesc STRING);
+```
+
+As you can see, it is the same thing, but a little different. 
+
+A bigger difference, is BigQuery's lack of indexes. This seems odd to experienced database developers, but there are good reasons for it working this way. BigQuery is designed to scale to Petabytes. When you have that much data, indexes take up even more space which compounds the storage problem. Indexes also slow down writes, because they constantly need updating. 
+
+There are ways to make queries more efficient in BigQuery other than indexes. These include: partitions, clustering, and nested-repeated fields. You learn how to use those features in this lab. 
+
 In this lab, you define schemas in BigQuery, create partitioned and clustered tables, and query nested and repeated fields.
 
 ## Objectives

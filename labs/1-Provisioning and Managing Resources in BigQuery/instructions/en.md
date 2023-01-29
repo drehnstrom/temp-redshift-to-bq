@@ -2,7 +2,10 @@
 
 ## Overview
 
-In this lab, you use the Google Cloud console and the CLI to create BigQuery datasets and tables. You also control access to and share data and monitor your BigQuery usage. 
+For experienced database programmers, sometimes the hardest part of migrating to a new platform is just getting started. In BigQuery, there are more things that are the same than different compared to other data warehouse solutions like Redshift, Teradata, Snowflake, PostgeSQL and others. There are some monor differences in terminolgy (schema versus dataset for example). The tools are also a little different. 
+
+In this lab, you will learn the simplest path to get started with BigQuery. You will create datasets and tables, add data, query your data, and monitor query execution. You will use both the web-based Console and the BigQuery CLI. This lab isn't meant to solve every problem, but rather show you the easist ways to start your migration into BigQuery.
+
 
 ## Objectives
 
@@ -116,7 +119,6 @@ LIMIT
 2. Make our colleague, Doug, a BigQuery Data Editor. Click the __Add principals__ button. Enter the email `doug@roitraining.com` and assign to him the role __BigQuery Data Editor__, and then click the __Save__ button. 
 
 ![Dataset Permissions](img/dataset-permissions.png)
-
 
 
 3. You have given Doug permissions to edit data in the dataset. You now give everyone permissions to query the Wikipedia data. <div> As you just did, click the __Action__ menu next to `wikipedia_data`, and select __Share__.  Click the __Add principals__ button. This time, set the new principal to the key word `allAuthenticatedUsers` and assign to that principal the __BigQuery Data Viewer__ role. When prompted, click __Allow Public Access__.</div>

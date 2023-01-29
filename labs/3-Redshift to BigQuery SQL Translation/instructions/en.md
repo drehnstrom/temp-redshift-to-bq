@@ -2,6 +2,10 @@
 
 ## Overview
 
+BigQuery and Redshift both support ANSI SQL. As with all database platforms though, there are differences due to the platform.
+
+In SQL, there are DML (Data Manipulation Language) statements. These include INSERT, UPDATE, DELETE and SELECT. There are also DDL (Data Definition Language) statements that are used to create things like schemas, tables, and views. Databases also have the ability to create cutom functions and stored procedures. An important part of migrating from another database is to understand how all these can be used with BigQuery.  
+
 In this lab, you program SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You create tables and views using SQL DDL statements, and you create custom behaviors using user-defined functions (UDFs) and stored procedures. 
 
 ## Objectives
