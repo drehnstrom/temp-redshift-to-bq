@@ -322,7 +322,7 @@ ORDER BY
 ![Bytes Shuffled Clustered](img/bytes-shuffled-clustered.png)
 
 
-## Task 3. Query nested and repeated Fields
+## Task 4. Query nested and repeated Fields
 
 1. Run the following query. <div>__Note:__ There is a one-to-many relationship between the events table and the sales table. When you run this query, you see a lot of repetition on the one side of the relationships. For every sale, the event is repeated. </div>
 
@@ -420,7 +420,11 @@ ORDER BY eventid;
 
 ![Top Commissions Results](img/results-top-comm.png)
 
+__Note:__ In the Query Results screen, click on the Execution Details tab. Examine the performance metrics for this query. Slot time consumed should be very low. 
+
 ### **Congratulations!** You have defined schemas in BigQuery, created partitioned and clustered tables, and queried nested and repeated fields.
+
+
 
 
 ![[/fragments/endqwiklab]]
