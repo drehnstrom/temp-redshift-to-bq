@@ -2,9 +2,9 @@
 
 ## Overview
 
-BigQuery and Redshift both support ANSI SQL. As with all database platforms though, there are differences due to the platform.
+BigQuery and Amazon Redshift both support ANSI SQL. As with all database platforms though, there are differences due to the platform.
 
-In SQL, there are DML (Data Manipulation Language) statements. These include INSERT, UPDATE, DELETE and SELECT. There are also DDL (Data Definition Language) statements that are used to create things like schemas, tables, and views. Databases also have the ability to create cutom functions and stored procedures. An important part of migrating from another database is to understand how all these can be used with BigQuery.  
+In SQL, there are DML (Data Manipulation Language) statements. These include INSERT, UPDATE, DELETE, and SELECT. There are also DDL (Data Definition Language) statements that are used to create things such as schemas, tables, and views. Databases also have the ability to create custom functions and stored procedures. An important part of migrating from another database is to understand how all these can be used within BigQuery.  
 
 In this lab, you program SQL SELECT, INSERT, UPDATE, and DELETE statements to create and return data in BigQuery. You create tables and views using SQL DDL statements, and you create custom behaviors using user-defined functions (UDFs) and stored procedures. 
 
@@ -146,7 +146,7 @@ DELETE FROM animals_dataset.Pets WHERE Type = 'Frog';
 
 ## Task 3. SQL SELECT statements
 
-SELECT statements in BigQuery are very similar to as they are in other databases. As with many databases, there are relatively minor differences due the the platform. Let's take a look at some examples in this section. \
+SELECT statements in BigQuery are very similar to other databases. As with many databases, there are relatively minor differences due the the platform. Let's take a look at some examples in this section. 
 
 1. Use a JOIN to select all the Owners and their Pets, add a WHERE clause to only select the Canines, and sort by the Owner's name. 
 
