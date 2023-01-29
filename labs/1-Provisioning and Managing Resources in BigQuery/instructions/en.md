@@ -2,7 +2,7 @@
 
 ## Overview
 
-For experienced database programmers, sometimes the hardest part of migrating to a new platform is just getting started. In BigQuery, there are more things that are the same than different compared to other data warehouse solutions such as Amazon Redshift, Teradata, Snowflake, PostgeSQL and others. There are some minor differences in terminolgy (schema versus dataset for example). The tools are also a little different. 
+For experienced database programmers, sometimes the hardest part of migrating to a new platform is just getting started. In BigQuery, there are more things that are the same than different compared to other data warehouse solutions such as Amazon Redshift, Teradata, Snowflake, PostgreSQL and others. There are some minor differences in terminolgy (schema versus dataset for example). The tools are also a little different. 
 
 In this lab, you learn the simplest path to get started with BigQuery. You create datasets and tables, add data, query your data, and monitor query execution. You use both the web-based console and the BigQuery CLI. This lab isn't meant to solve every problem, but rather show you the easist ways to start your migration into BigQuery.
 
@@ -36,7 +36,7 @@ In this lab, you learn how to:
 
 ## Task 2. Create native and external tables
 
-1. In the Explorer pane, click the Action menu next to `wikipedia_data`, and select __Create table__.
+1. In the Explorer pane, click the __Action__ menu next to `wikipedia_data`, and select __Create table__.
 
 ![Create Table Menu](img/create-table.png)
 
@@ -44,15 +44,15 @@ In this lab, you learn how to:
 
 __Note:__ Notice the astericks (*) in the file pattern. There is approximately a gigabyte of data being imported from a number of CSV files. This would be a very common way of importing large datasets into BigQuery. 
 
-3. Confirm the file format was changed to CSV. In the Destination section, confirm the dataset is set to `wikipedia_data`, and set the table name to `wiki_table_csv`
+3. Confirm the file format was changed to CSV. In the __Destination__ section, confirm the dataset is set to `wikipedia_data`, and set the table name to `wiki_table_csv`
 
-4. In the Schema section, select the __Auto detect__ checkbox. 
+4. In the __Schema__ section, select the __Auto detect__ checkbox. 
 
-5. Expand the __Advanced options__ section, and set the __Header rows to skip__ property to 1. Finally, click the __Create Table__ button. 
+5. Expand the __Advanced options__ section, and set the __Header rows to skip__ property to __1.__ Finally, click the __Create table__ button. 
 
 6. When the load operation completes, in the Explorer pane, select the __Action__ menu next to the `wiki_table_csv` table and select __Query__. 
 
-7. In the Query editor, paste the following query and run it. _This query counts the number of views for Wikipedia articles with "GOOGLE" in the title_. 
+7. In the __Query__ editor, paste the following query and run it. _This query counts the number of views for Wikipedia articles with "GOOGLE" in the title_. 
 
 ```
 SELECT
@@ -69,7 +69,7 @@ LIMIT
   100;
 ```
 
-8. Examine the Query results.
+8. Examine the query results.
 
 ![Query Results](img/query-results.png)
 
@@ -85,11 +85,11 @@ LIMIT
 
 __Note:__ This is the same data that you imported earlier, but this data is in Parquet format. This is a columnar format similar to BigQuery's native format and also Amazon Redshift's native format. 
 
-12. In the Destination section, confirm the dataset is set to `wikipedia_data`, set the table name to `wiki_external_table_parquet`, and set the table type property to __External table__. 
+12. In the __Destination__ section, confirm the dataset is set to `wikipedia_data`, set the table name to `wiki_external_table_parquet`, and set the table type property to __External table__. 
 
-__Note:__ External tables are not imported into BigQuery Storage. The data stays in Cloud Storage, and only the schema is added to BigQuery. The table can be queried in the same way though. 
+__Note:__ External tables are not imported into BigQuery storage. The data stays in Cloud Storage, and only the schema is added to BigQuery. The table can be queried in the same way though. 
 
-13. As before, select the __Auto detect__ checkbox in the schema section. Then, click the __Create table__ button. 
+13. As before, select the __Auto detect__ checkbox in the __Schema__ section. and then click the __Create table__ button. 
 
 14. Run the same query as before, but using the external table. Compare the __Query results__ and __Job information__ from each one. You should find that the query using the native BigQuery table ran faster than the one that used the external table.   
 
