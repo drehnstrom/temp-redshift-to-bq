@@ -29,7 +29,7 @@ In this lab, you learn how to:
 
 1. In the Google Cloud console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)), select __BigQuery__. 
 
-2. In the SQL Workspace toolbar, click the Editor icon to open the SQL code editor.
+2. In the SQL Workspace toolbar, click the __Editor__ icon to open the SQL code editor.
 
 ![Open SQL Editor Icon](img/open-sql-editor.png)
 
@@ -57,7 +57,7 @@ CREATE TABLE animals_dataset.Pets(
   );
 ```
 
-5. Expand the Explorer tree to verify the dataset and tables were created. 
+5. Expand the __Explorer__ tree to verify the dataset and tables were created. 
 
 6. Load some data into the tables. 
 
@@ -146,7 +146,7 @@ DELETE FROM animals_dataset.Pets WHERE Type = 'Frog';
 
 ## Task 3. SQL SELECT statements
 
-SELECT statements in BigQuery are very similar to other databases. As with many databases, there are relatively minor differences due the the platform. Let's take a look at some examples in this section. 
+SELECT statements in BigQuery are very similar to other databases. As with many databases, there are relatively minor differences due to the platform. Let's take a look at some examples in this section. 
 
 1. Use a JOIN to select all the Owners and their Pets, add a WHERE clause to only select the Canines, and sort by the Owner's name. 
 
@@ -324,7 +324,7 @@ CREATE OR REPLACE TABLE
     o.OwnerID, o.Name);
 ```
 
-2. In the Explorer pane, examine the schema of the newly created table. 
+2. In the __Explorer__ pane, examine the schema of the newly created table. 
 
 3. Earlier you wrote a query that joined the Owners and Pets tables to count the number of pets each owner has. This changes when the pets are in an array. Use the ARRAY_LENGTH function to return the number of pets for each owner.  
 
@@ -338,7 +338,7 @@ ORDER BY
   count DESC;
 ```
 
-4. Use the code below to create a view that returns the small pets (those 20 pounds or less). After you run the query, examine the results in the Explorer pane. Run a query to verify the results are as expected. 
+4. Use the code below to create a view that returns the small pets (those 20 pounds or less). After you run the query, examine the results in the __Explorer__ pane. Run a query to verify the results are as expected. 
 
 ```
 CREATE OR REPLACE VIEW
@@ -381,7 +381,7 @@ AS (
 
 ```
 
-2. Note in the Explorer pane, the UDF was saved in the dataset. Test it with the following query. 
+2. Note in the __Explorer__ pane, the UDF was saved in the dataset. Test it with the following query. 
 
 ```
 SELECT name, weight as pounds, animals_dataset.PoundsToKilos(Weight) as Kilos
@@ -401,7 +401,7 @@ INSERT INTO animals_dataset.Pets (PetID, OwnerID, Type, Name, Weight)
 END
 ```
 
-4. Test the procedure using the following code. After the code completes, take a look at the results of the SELECT statement in the All Results pane to see the new pet. Note the output variable is passed as the last argument in the function call. 
+4. Test the procedure using the following code. After the code completes, take a look at the results of the SELECT statement in the __All Results__ pane to see the new pet. Note the output variable is passed as the last argument in the function call. 
 
 ```
 DECLARE newPetID INT64;
