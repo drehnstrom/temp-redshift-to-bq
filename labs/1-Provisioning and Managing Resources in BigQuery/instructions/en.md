@@ -2,9 +2,9 @@
 
 ## Overview
 
-For experienced database programmers, sometimes the hardest part of migrating to a new platform is just getting started. In BigQuery, there are more things that are the same than different compared to other data warehouse solutions like Redshift, Teradata, Snowflake, PostgeSQL and others. There are some monor differences in terminolgy (schema versus dataset for example). The tools are also a little different. 
+For experienced database programmers, sometimes the hardest part of migrating to a new platform is just getting started. In BigQuery, there are more things that are the same than different compared to other data warehouse solutions such as Amazon Redshift, Teradata, Snowflake, PostgeSQL and others. There are some minor differences in terminolgy (schema versus dataset for example). The tools are also a little different. 
 
-In this lab, you will learn the simplest path to get started with BigQuery. You will create datasets and tables, add data, query your data, and monitor query execution. You will use both the web-based Console and the BigQuery CLI. This lab isn't meant to solve every problem, but rather show you the easist ways to start your migration into BigQuery.
+In this lab, you learn the simplest path to get started with BigQuery. You create datasets and tables, add data, query your data, and monitor query execution. You use both the web-based console and the BigQuery CLI. This lab isn't meant to solve every problem, but rather show you the easist ways to start your migration into BigQuery.
 
 
 ## Objectives
