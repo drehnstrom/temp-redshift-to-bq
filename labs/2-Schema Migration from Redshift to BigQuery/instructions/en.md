@@ -63,7 +63,7 @@ CREATE SCHEMA IF NOT EXISTS ticket_sales OPTIONS(
   location="us");
 ```
 
-4. When the query completes, in the __Results__ pane, click the __Go to Dataset__ button. Also, in the Explorer pane, expand your project to verify that the dataset was created. 
+4. When the query completes, in the __Results__ pane, click the __Go to Dataset__ button. Also, in the __Explorer__ pane, expand your project to verify that the dataset was created. 
 
 ![Go to Dataset](img/go-to-dataset.png)
 
@@ -168,7 +168,7 @@ CREATE TABLE ticket_sales.users(
 );
 ```
 
-10. When the command completes, take a look at the Explorer pane. The following tables should have been created. 
+10. When the command completes, take a look at the __Explorer__ pane. The following tables should have been created. 
 
 ![Tickets Database Explorer](img/tickets-database-explorer.png)
 
