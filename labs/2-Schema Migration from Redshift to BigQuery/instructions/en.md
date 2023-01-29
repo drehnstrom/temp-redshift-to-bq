@@ -4,7 +4,7 @@
 
 Both Amazon Redshift and BigQuery support the ANSI SQL standard, however there are still some differences in datatypes and functionality. So, the schemas you may have used for your Amazon Redshift databases may need to be altered. 
 
-For example, a Create Table query for Amazon Redshift might look like this: 
+For example, a CREATE TABLE query for Amazon Redshift might look like this: 
 
 ```
 CREATE TABLE categories(
@@ -52,7 +52,7 @@ In this lab, you learn how to:
 
 1. In the Google Cloud console, from the Navigation menu (![Navigation Menu Icon](img/nav-menu.png)), select __BigQuery__. 
 
-2. In the SQL Workspace toolbar, click the Editor icon to open the SQL code editor.
+2. In the SQL Workspace toolbar, click the __Editor__ icon to open the SQL code editor.
 
 ![Open SQL Editor Icon](img/open-sql-editor.png)
 
@@ -222,7 +222,6 @@ FROM FILES (
 
 ![Load Results](img/load-results.png)
 
-
 13. Run the following query as a test. This shows events by category. 
 
 ```
@@ -242,7 +241,7 @@ ON
 
 ## Task 2. Create partitioned tables
 
-1. In the query editor, paste the following code, but __do not__ click Run. 
+1. In the __Query__ editor, paste the following code, but __do not__ click Run. 
 
 ```
 SELECT * FROM ticket_sales.sales;
@@ -350,7 +349,7 @@ ORDER BY
 ![Bytes Shuffled Clustered](img/bytes-shuffled-clustered.png)
 
 
-## Task 4. Query nested and repeated Fields
+## Task 4. Query nested and repeated fields
 
 1. Run the following query. <div>__Note:__ There is a one-to-many relationship between the events table and the sales table. When you run this query, you see a lot of repetition on the one side of the relationships. For every sale, the event is repeated. </div>
 
