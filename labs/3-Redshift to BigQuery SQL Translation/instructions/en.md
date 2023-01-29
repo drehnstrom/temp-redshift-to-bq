@@ -123,7 +123,7 @@ WHERE
   o.Name = 'Mary';
 ```
 
-4. The boss decided that the type "Dogs" should be "Canines". Run the following UPDATE to fix that. 
+4. Your team decided that the type "Dogs" should be "Canines". Run the following UPDATE to fix that. 
 
 ```
 UPDATE animals_dataset.Pets SET Type = 'Canine' WHERE Type = 'Dog';
@@ -131,7 +131,7 @@ UPDATE animals_dataset.Pets SET Type = 'Canine' WHERE Type = 'Dog';
 
 5. Run a query to verify that all the Dogs are now Canines.
 
-6. The boss also decided that Frogs were not Pets. She said to delete all the Frogs from the Pets table. 
+6. The team also decided that Frogs were not Pets. So, delete all the Frogs from the Pets table. 
 
 ```
 DELETE FROM animals_dataset.Pets WHERE Type = 'Frog';
@@ -142,37 +142,9 @@ DELETE FROM animals_dataset.Pets WHERE Type = 'Frog';
 
 ## Task 3. SQL SELECT statements
 
-SELECT statements in BigQuery are very similar to as they are in other databases. As with many databases, there are relatively minor differences due the the platform. Let's take a look at some examples in this section. 
+SELECT statements in BigQuery are very similar to as they are in other databases. As with many databases, there are relatively minor differences due the the platform. Let's take a look at some examples in this section. \
 
-1. Use a JOIN to select all the Owners and their Pets.
-
-```
-SELECT
-  o.Name, p.Type, p.Name, p.Weight
-FROM
-  animals_dataset.Owners o
-JOIN
-  animals_dataset.Pets p
-ON
-  o.OwnerID = p.OwnerID;
-```
-
-2. Add a WHERE clause to only select the Canines. 
-
-```
-SELECT
-  o.Name, p.Type, p.Name, p.Weight
-FROM
-  animals_dataset.Owners o
-JOIN
-  animals_dataset.Pets p
-ON
-  o.OwnerID = p.OwnerID
-WHERE 
-  p.Type = "Canine";
-```
-
-3. Now, sort by the Owner's name. 
+1. Use a JOIN to select all the Owners and their Pets, add a WHERE clause to only select the Canines, and sort by the Owner's name. 
 
 ```
 SELECT
@@ -189,21 +161,7 @@ ORDER BY
   o.Name ASC;
 ```
 
-4. Let's count the pets by type using the following query. 
-
-```
-SELECT
-  type,
-  COUNT(*) AS count
-FROM
-  `animals_dataset.Pets`
-GROUP BY
-  type
-ORDER BY
-  count desc;
-```
-
-5. Now, let's count the pets by Owner. 
+2. Now, let's count the pets by Owner. 
 
 ```
 SELECT
@@ -220,7 +178,7 @@ ORDER BY
   count DESC;
 ```
 
-6. Return the pets as an array using the ARRAY_AGG and STRUCT functions. 
+3. Return the pets as an array using the ARRAY_AGG and STRUCT functions. 
 
 ```
 SELECT
@@ -239,7 +197,7 @@ ON
 GROUP BY o.OwnerID, o.Name
 ```
 
-7. You can use the WITH statement to query the results of another query. This avoids using nested SQL statements and makes the code easier to read. In the example below, we wrap the previous query with the WITH statement and then run a query to get the pets array. 
+4. You can use the WITH statement to query the results of another query. This avoids using nested SQL statements and makes the code easier to read. In the example below, we wrap the previous query with the WITH statement and then run a query to get the pets array. 
 
 ```
 WITH owners_pets as (SELECT
@@ -260,7 +218,7 @@ GROUP BY o.OwnerID, o.Name)
 SELECT pets from owners_pets;
 ```
 
-8. Let's say you only want the owners and the names of their pets. Use a CROSS JOIN to join the owners with the array of pets, then select the data you want to see.  
+5. Let's say you only want the owners and the names of their pets. Use a CROSS JOIN to join the owners with the array of pets, then select the data you want to see.  
 
 ```
 WITH owners_pets as (SELECT
@@ -285,7 +243,7 @@ CROSS JOIN
 GROUP BY OwnerID, OwnerName;
 ```
 
-9. Now, let's return just the pets' names sorted. 
+6. Now, let's return just the pets' names sorted. 
 
 ```
 WITH owners_pets as (SELECT
@@ -310,7 +268,7 @@ CROSS JOIN
 ORDER BY PetName;
 ```
 
-10. UNNEST the pets array and just get the big pets (those over 20 pounds). _The CROSS JOIN might be a little different from what you are used to, but it works._
+7. UNNEST the pets array and just get the big pets (those over 20 pounds). _The CROSS JOIN might be a little different from what you are used to, but it works._
 
 ```
 WITH owners_pets as (SELECT
